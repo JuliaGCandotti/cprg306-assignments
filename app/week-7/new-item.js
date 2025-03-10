@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({ onAddItem }) {
   const [name, setName] = useState("");
 
-  const [category, setCategory] = useState("produce"); //HOW TO SET CATEGORY TO BE INITIALLY "Produce"?
+  const [category, setCategory] = useState("produce");
 
   const [quantity, setQuantity] = useState(1); //initializing with quantity of 1 as we cannot add 0 to the cart.
 
@@ -25,6 +25,10 @@ export default function NewItem() {
     event.preventDefault();
     let item = { name, quantity, category };
     console.log(item);
+    const id = Math.floor(Math.random() * 1000); // Generate a random ID
+    let newItem = { ...item };
+    newItem.id = id;
+    onAddItem(newItem);
     alert(
       `Added Item: ${item.name}, Quantity: ${item.quantity}, Category: ${item.category}`
     );
@@ -41,7 +45,7 @@ export default function NewItem() {
   };
 
   return (
-    <section className="flex justify-center items-center min-h-screen bg-gray-100">
+    <section className="m-2 p-2">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
