@@ -1,34 +1,36 @@
 "use client";
 
+import Item from "./item";
 import { useState } from "react";
 
-function Item({ item, onSelect }) {
-  return (
-    <div
-      onClick={() => onSelect(item)}
-      className="bg-gray-500 p-2 lg:max-w-md cursor-pointer"
-    >
-      <h2 className="font-bold text-2xl text-blue-800">{item.name}</h2>
-      <p>
-        Quantity available: {item.quantity} in {item.category}
-      </p>
-    </div>
-  );
-}
+// function Item({ item, onSelect }) {
+//   return (
+//     <div
+//       onClick={() => onSelect(item)}
+//       className="bg-gray-500 p-2 lg:max-w-md cursor-pointer"
+//     >
+//       <h2 className="font-bold text-2xl text-blue-800">{item.name}</h2>
+//       <p>
+//         Quantity available: {item.quantity} in {item.category}
+//       </p>
+//     </div>
+//   );
+// }
 
 function ItemList({ items, onItemSelect }) {
+  console.log("items: ", items);
   return (
     <ul>
       {items.map((item) => (
         <li key={item.id} className="p-2">
-          <Item item={item} onSelect={onItemSelect} />
+          <Item {...item} onSelect={onItemSelect} />
         </li>
       ))}
     </ul>
   );
 }
 
-export default function Page({ items }) {
+export default function Page({ items, onItemSelect }) {
   const [sortBy, setSortBy] = useState("name");
 
   const sortedItems = [...items].sort((a, b) => {
@@ -41,7 +43,7 @@ export default function Page({ items }) {
   });
 
   const handleItemSelect = (item) => {
-    console.log(item.name);
+    onItemSelect(item);
   };
 
   return (
