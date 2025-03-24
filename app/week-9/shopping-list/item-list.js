@@ -38,7 +38,9 @@ export default function Page({ items, onItemSelect }) {
         <button
           onClick={() => setSortBy("name")}
           className={`px-4 py-2 rounded ${
-            sortBy === "name" ? "bg-blue-800 text-white" : "bg-gray-600"
+            sortBy === "name"
+              ? "bg-blue-800 text-white"
+              : "bg-gray-600  text-white"
           }`}
         >
           Sort by name
@@ -46,7 +48,9 @@ export default function Page({ items, onItemSelect }) {
         <button
           onClick={() => setSortBy("category")}
           className={`px-4 py-2 rounded ${
-            sortBy === "category" ? "bg-blue-800 text-white" : "bg-gray-600"
+            sortBy === "category"
+              ? "bg-blue-800 text-white"
+              : "bg-gray-600  text-white"
           }`}
         >
           Sort by category

@@ -22,11 +22,11 @@ export default function Page() {
       <li>
         <Link href="/week-7">Go to week-7 page</Link>
       </li>
-      {/* <li>
-        <Link href="/week-8.2">Go to week-8.2 page</Link>
-      </li> */}
       <li>
         <Link href="/week-8">Go to week-8 page</Link>
+      </li>
+      <li>
+        <Link href="/week-9">Go to week-9 page</Link>
       </li>
     </div>
   );
