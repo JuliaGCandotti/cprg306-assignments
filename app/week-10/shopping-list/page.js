@@ -62,7 +62,7 @@ export default function Page() {
   return (
     <main className="flex p-4">
       <div className="flex-1 mr-4">
-        <Link href="/week-9/">Back to main page</Link>
+        <Link href="/week-10/">Back to main page</Link>
         <h1 className="font-bold text-2xl m-2 p-2">Shopping List</h1>
         <NewItem onAddItem={handleAddItem} />
         <ItemList items={items} onItemSelect={onSelectedItem} />
